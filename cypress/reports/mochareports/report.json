@@ -1,0 +1,169 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-08-03T09:09:23.209Z",
+    "end": "2022-08-03T09:09:30.989Z",
+    "duration": 526,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "baf3bc03-067b-475f-88ea-e6fe4bfa2387",
+      "title": "",
+      "fullFile": "cypress/integration/PassCase/login2.spec.js",
+      "file": "cypress/integration/PassCase/login2.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "892da851-516c-40bf-9442-47a1ec0e1032",
+          "title": "verify the login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "verify with valid credential",
+              "fullTitle": "verify the login verify with valid credential",
+              "timedOut": null,
+              "duration": 146,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(1).to.eqls(1);",
+              "err": {},
+              "uuid": "d81625c4-6e48-404e-91a3-cf2ff68470a5",
+              "parentUUID": "892da851-516c-40bf-9442-47a1ec0e1032",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d81625c4-6e48-404e-91a3-cf2ff68470a5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 146,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "8a2dd6bb-38b5-482f-ba98-b9824aab1dee",
+      "title": "",
+      "fullFile": "cypress/integration/FailCase/login1.spec.js",
+      "file": "cypress/integration/FailCase/login1.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d4648412-38f3-47f8-9fb9-8444b25af1b5",
+          "title": "verify the login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "verify with valid credential",
+              "fullTitle": "verify the login verify with valid credential",
+              "timedOut": null,
+              "duration": 380,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/FailCase/login1.spec.js/verify the login -- verify with valid credential (failed).png\"",
+              "code": "expect(1).to.eqls(2);",
+              "err": {
+                "message": "AssertionError: expected 1 to deeply equal 2",
+                "estack": "AssertionError: expected 1 to deeply equal 2\n    at Context.eval (http://localhost:56369/__cypress/tests?p=cypress\\integration\\FailCase\\login1.spec.js:102:18)",
+                "diff": "- 1\n+ 2\n"
+              },
+              "uuid": "08d0bb57-7806-4e0f-b321-e0a565d3b4a8",
+              "parentUUID": "d4648412-38f3-47f8-9fb9-8444b25af1b5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "08d0bb57-7806-4e0f-b321-e0a565d3b4a8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 380,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

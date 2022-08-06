@@ -1,0 +1,81 @@
+------- First Step -------
+Mochawesome Report
+The Mochawesome report is one of the most important reports in Cypress. To install mochawesome, run the command −
+
+// command ===> npm install mochawesome --save-dev
+
+--------- Second Step -----------
+To install mocha, run the command −
+// command  ==>  npm install mocha --save-dev
+
+
+3. Install cypress-multi-reporters
+npm install cypress-multi-reporters --save-dev
+
+----------- 4 Step -------------
+To merge mochawesome json reports, run the command −
+// Command ==> npm install mochawesome-merge --save-dev
+
+
+---------- 5 Step ----------------
+ 5. Install mochawesome-report-generator
+command ==> npm install mochawesome-report-generator --save-dev
+
+
+One Command to install all the above ones: -
+npm install mocha cypress-multi-reporters mochawesome mochawesome-merge mochawesome-report-generator
+
+Step 2: Add reporter settings in cypress.json
+
+"reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "mochawesome",
+        "mochawesomeReporterOptions": {
+            "reportDir": "cypress/reports/mocha",
+            "quite": true,
+            "overwrite": false,
+            "html": false,
+            "json": true
+        }
+    }
+
+Step 3: Add scripts in package.json file
+For Windows -
+"scripts": {
+    "clean:reports": "if exist cypress\\reports rmdir /s/q cypress\\reports && mkdir cypress\\reports mkdir cypress\\reports\\mochareports",
+    "pretest": "npm run clean:reports",
+    "scripts": "cypress run",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "test" : "npm run scripts || npm run posttest"
+  }
+ 
+
+For Mac
+
+"scripts": {
+    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports ",
+    "pretest": "npm run clean:reports",
+    "scripts": "cypress run",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "test" : "npm run scripts || npm run posttest"
+  }
+
+Step 4 - Add Screenshots of failed test cases to report
+A. Change screenshot path into cypress.json
+"screenshotsFolder": "cypress/reports/mochareports/assets",
+
+B. Add the following code into cypress support/index.js
+
+import addContext from "mochawesome/addContext";
+
+Cypress.on("test:after:run", (test, runnable) => {
+  if (test.state === "failed") {
+    const screenshot = `assets/${Cypress.spec.name}/${runnable.parent.title} -- ${test.title} (failed).png`;
+    addContext({ test }, screenshot);
+  }
+});
+
